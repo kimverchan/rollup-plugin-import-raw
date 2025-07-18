@@ -23,7 +23,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c && rollup -c rollup.config.dts.mjs"
   },
   "files": [
     "dist",
