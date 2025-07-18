@@ -1,0 +1,55 @@
+{
+  "name": "rollup-plugin-raw-import",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "assets can be imported as strings using the ?raw suffix",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/kimverchan/rollup-plugin-raw-import"
+  },
+  "author": "kimverchan",
+  "homepage": "https://github.com/kimverchan/rollup-plugin-raw-import/#readme",
+  "bugs": "https://github.com/kimverchan/rollup-plugin-raw-import/issues",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "exports": {
+    "types": "./types/index.d.ts",
+    "import": "./dist/es/index.js",
+    "default": "./dist/cjs/index.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "rollup",
+    "plugin",
+    "raw",
+    "import"
+  ],
+  "peerDependencies": {
+    "rollup": "^3.0.0||^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "rollup": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "rollup": "^4.0.0-24"
+  },
+  "types": "./types/index.d.ts"
+}
