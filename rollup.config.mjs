@@ -2,6 +2,7 @@ import { builtinModules } from 'node:module'
 import resolve from '@rollup/plugin-node-resolve'
 import { readFileSync } from 'node:fs'
 import typescript from '@rollup/plugin-typescript'
+import dts from 'rollup-plugin-dts'
 
 const pkg = JSON.parse(
   readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
@@ -25,8 +26,32 @@ export default {
     {
       format: 'es',
       file: pkg.module,
+      plugins: [emitModulePackageFile()],
       sourcemap: true,
     },
+    {
+      format: 'es',
+      file: 'dist/index.d.ts',
+    },
   ],
-  plugins: [typescript({ sourceMap: true }), resolve()],
+  plugins: [
+    typescript({
+      sourceMap: true,
+    }),
+    resolve(),
+    dts(),
+  ],
+}
+
+export function emitModulePackageFile() {
+  return {
+    name: 'emit-module-package-file',
+    generateBundle() {
+      this.emitFile({
+        type: 'asset',
+        fileName: 'package.json',
+        source: `{"type":"module"}`,
+      })
+    },
+  }
 }

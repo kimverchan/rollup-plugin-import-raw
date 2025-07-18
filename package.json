@@ -15,7 +15,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "exports": {
-    "types": "./types/index.d.ts",
+    "types": "./dist/index.d.ts",
     "import": "./dist/es/index.js",
     "default": "./dist/cjs/index.js"
   },
@@ -28,7 +28,6 @@
   "files": [
     "dist",
     "!dist/**/*.map",
-    "types",
     "README.md",
     "LICENSE"
   ],
@@ -52,7 +51,8 @@
     "@types/node": "^14.18.63",
     "prettier": "3.6.2",
     "rollup": "^4.45.1",
+    "rollup-plugin-dts": "^6.2.1",
     "tslib": "^2.8.1"
   },
-  "types": "./types/index.d.ts"
+  "types": "./dist/index.d.ts"
 }
